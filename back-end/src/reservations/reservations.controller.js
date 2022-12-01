@@ -31,15 +31,15 @@ function validateProperties(req, res, next) {
 }
 
 function validatePeople(req, res, next) {
-  const people = req.body.data.people;
-  const isValid = Number.isInteger(people);
-  if (people > 0 && isValid) {
-    return next();
+  const { people } = req.body.data;
+  const validNumber = Number.isInteger(people);
+  if (!validNumber || people <= 0) {
+    return next({
+      status: 400,
+      message: 'Number of people entered is an invalid number.',
+    });
   }
-  return next({
-    status: 400,
-    message: `Reservations require more than 1 people`,
-  });
+  next();
 }
 
 function validateDate(req, res, next) {

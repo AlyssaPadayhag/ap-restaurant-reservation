@@ -71,6 +71,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                         id="people"
                         name="people"
                         type="number"
+                        min="1"
                         className="form-control"
                         onChange={handleChange}
                         value={formData.people}
@@ -80,7 +81,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
 
                 <CancelButton />
                 <button type="submit" className="btn btn-primary mr-2"> Submit </button>
-                
+
             </form>
         </div>
     );

@@ -70,6 +70,7 @@ export async function listReservations(params, signal) {
 
 export async function createReservation(formData, signal) {
   const url = `${API_BASE_URL}/reservations`;
+  formData.people = Number(formData.people);
   const options = {
     method: 'POST',
     headers,
