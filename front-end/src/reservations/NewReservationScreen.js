@@ -8,7 +8,6 @@ import NewReservationForm from "./NewReservationForm";
 function NewReservationScreen() {
     const history = useHistory();
 
-    const [error, setError] = useState(null);
     const [closedOnTuesdaysError, setClosedOnTuesdaysError] = useState(null);
     const [pastDateError, setPastDateError] = useState(null);
     const [businessHoursError, setBusinessHoursError] = useState(null);
