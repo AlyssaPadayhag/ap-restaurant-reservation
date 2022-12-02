@@ -57,7 +57,7 @@ function NewReservationScreen() {
                 .then(() => {
                     history.push(`/dashboard/?date=${formData.reservation_date}`);
                 })
-                .catch(setError);
+                .catch();
             return () => abortController.abort();
         }
 
@@ -66,7 +66,6 @@ function NewReservationScreen() {
     return (
         <div>
             <h1>Create New Reservation</h1>
-            <ErrorAlert error={error} />
             <ErrorAlert error={closedOnTuesdaysError} />
             <ErrorAlert error={pastDateError} />
             <ErrorAlert error={businessHoursError} />
