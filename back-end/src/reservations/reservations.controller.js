@@ -68,7 +68,7 @@ function validateTime(req, res, next) {
 }
 
 function validateTimeAndDate(req, res, next) {
-  const { reservation_date } = req.body.data;
+  const { reservation_date, reservation_time } = req.body.data;
   const dayOfWeek = new Date(reservation_date).getUTCDay();
   const today = new Date();
   const resDate = new Date(reservation_date);
@@ -83,6 +83,12 @@ function validateTimeAndDate(req, res, next) {
       status: 400,
       message: "Reservation needs to be in the future",
     });
+  }
+  if (reservation_time < "10:30" || reservation_time > "21:30") {
+    return next({
+      status: 400,
+      message: "Reservation time must be between 10:30am - 9:30pm",
+    })
   }
   return next();
 }

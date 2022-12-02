@@ -11,6 +11,7 @@ function NewReservationScreen() {
     const [error, setError] = useState(null);
     const [closedOnTuesdaysError, setClosedOnTuesdaysError] = useState(null);
     const [pastDateError, setPastDateError] = useState(null);
+    const [businessHoursError, setBusinessHoursError] = useState(null);
 
     const [formData, setFormData] = useState({
         first_name: "a",
@@ -42,9 +43,15 @@ function NewReservationScreen() {
         }
         if (currentDate > resDate) {
             setPastDateError({
-                message: "Reservation must be in future date.",
+                message: "Reservation date must be in future.",
               });
-        } else {
+        }
+        if (formData.reservation_time < "10:30" || formData.reservation_time > "21:30") {
+            setBusinessHoursError({
+                message: "Reservation time must be between 10:30am - 9:30pm"
+            });
+        }
+        else {
             const abortController = new AbortController();
             await createReservation(formData, abortController.signal)
                 .then(() => {
@@ -62,6 +69,7 @@ function NewReservationScreen() {
             <ErrorAlert error={error} />
             <ErrorAlert error={closedOnTuesdaysError} />
             <ErrorAlert error={pastDateError} />
+            <ErrorAlert error={businessHoursError} />
             <NewReservationForm
                 formData={formData}
                 handleChange={handleChange}
