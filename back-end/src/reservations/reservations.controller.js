@@ -46,13 +46,13 @@ function validateDate(req, res, next) {
   const date = req.body.data.reservation_date;
   const isValid = Date.parse(date);
 
-  if (isValid) {
-    return next();
+  if (!isValid) {
+    next({
+      status: 400,
+      message: `reservation_date is not a valid date.`,
+    });
   }
-  next({
-    status: 400,
-    message: `reservation_date is not a valid date.`,
-  });
+  return next();
 }
 
 function validateTime(req, res, next) {
@@ -62,6 +62,26 @@ function validateTime(req, res, next) {
     return next({
       status: 400,
       message: `reservation_time is not a valid time`,
+    });
+  }
+  return next();
+}
+
+function validateTimeAndDate(req, res, next) {
+  const { reservation_date } = req.body.data;
+  const dayOfWeek = new Date(reservation_date).getUTCDay();
+  const today = new Date();
+  const resDate = new Date(reservation_date);
+  if (dayOfWeek === 2) {
+    return next({
+      status: 400,
+      message: "Restaurant is closed on Tuesdays",
+    });
+  }
+  if (today > resDate) {
+    return next({
+      status: 400,
+      message: "Reservation needs to be in the future",
     });
   }
   return next();
@@ -89,6 +109,7 @@ module.exports = {
     validateProperties,
     validateDate,
     validateTime,
+    validateTimeAndDate,
     validatePeople,
     asyncErrorBoundary(create),
   ],
