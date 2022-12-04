@@ -7,6 +7,7 @@ import Dashboard from "../dashboard/Dashboard";
 import NewReservationScreen from "../reservations/NewReservationScreen";
 import NewTableScreen from "../tables/NewTableScreen";
 import SeatReservationScreen from "../tables/SeatReservationScreen";
+import SearchScreen from "../search/SearchScreen";
 
 import NotFound from "../errors/NotFound";
 
@@ -43,6 +44,10 @@ function Routes() {
 
       <Route path="/dashboard">
         <Dashboard date={today()} />
+      </Route>
+
+      <Route path="/search">
+        <SearchScreen />
       </Route>
 
       <Route>
