@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { listReservations, listTables } from "../utils/api";
+import { listReservations, listTables, finishTable } from "../utils/api";
 import ErrorAlert from "../errors/ErrorAlert";
 import ListReservations from "../reservations/ListReservations";
 import ListTables from "../tables/ListTables";
@@ -18,6 +18,7 @@ function Dashboard({ date }) {
   const [reservations, setReservations] = useState([]);
   const [reservationsError, setReservationsError] = useState(null);
 
+  const [errors, setErrors] = useState(null);
   const [tables, setTables] = useState([]);
   const [tablesError, setTablesError] = useState(null);
 
@@ -52,9 +53,25 @@ function Dashboard({ date }) {
     return () => abortController.abort();
   }
 
+  function handleFinish({ target }) {
+    const result = window.confirm(
+      'Is this table ready to seat new guests? This cannot be undone.'
+    );
+    if (result) {
+      const tableId = target.id;
+
+      const abortController = new AbortController();
+
+      finishTable(tableId, abortController.signal).then(() => {
+        history.push('/');
+      });
+    }
+  }
+
   return (
     <main>
       <h1>Dashboard</h1>
+      <ErrorAlert error={errors} />
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
       
@@ -88,7 +105,7 @@ function Dashboard({ date }) {
 
 
       <ListReservations reservations={reservations} />
-      <ListTables tables={tables} />
+      <ListTables tables={tables} handleFinish={handleFinish} />
     </main>
   );
 }

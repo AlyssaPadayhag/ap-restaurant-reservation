@@ -86,6 +86,16 @@ async function validateReservationExists(req, res, next) {
     });
 }
 
+async function validateTableExists(req, res, next) {
+  const { table_id } = req.params;
+  const table = await service.read(table_id);
+  if (table) {
+    res.locals.table = table;
+    return next();
+  }
+  return next({ status: 404, message: `table_id ${table_id} not found.` });
+}
+
 async function validateTableCapacity(req, res, next) {
     const { table_id } = req.params;
     const table = await service.read(table_id);
@@ -93,6 +103,17 @@ async function validateTableCapacity(req, res, next) {
       return next({
         status: 400,
         message: "Table capacity is too small for reservation size",
+      });
+    }
+    next();
+  }
+
+  function tableOccupied(req, res, next) {
+    const { reservation_id } = res.locals.table;
+    if (!reservation_id) {
+      return next({
+        status: 400,
+        message: 'Table is not occupied.',
       });
     }
     next();
@@ -127,6 +148,11 @@ async function validateTableOccupancy(req, res, next) {
     res.json({ data: await service.update(reservation_id, table_id) });
   }
 
+  async function destroy(req, res, next) {
+    const { table_id, reservation_id } = res.locals.table;
+    const data = await service.destroy(reservation_id, table_id);
+    res.status(200).json({ data });
+  }
   
 
   module.exports ={
@@ -146,4 +172,5 @@ async function validateTableOccupancy(req, res, next) {
         validateTableOccupancy,
         asyncErrorBoundary(update),
     ],
+    destroy: [validateTableExists, tableOccupied, destroy],
   }

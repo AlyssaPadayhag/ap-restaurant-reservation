@@ -15,7 +15,7 @@ function create(newTable) {
 function read(table_id) {
     return knex(table)
         .select("*")
-        .where({ table_id })
+        .where({ table_id: table_id })
         .first();
 }
 
@@ -42,10 +42,22 @@ async function update(reservation_id, table_id) {
       );
   }
 
+  function destroy(reservation_id, table_id) {
+    return knex("reservations")
+      .where({ reservation_id })
+      .returning("*")
+      .then(() => {
+        return knex("tables")
+          .where({ table_id })
+          .update({ reservation_id: null });
+      });
+  }
+
 module.exports ={
     create,
     read,
     readReservation,
     update,
+    destroy,
     list,
 }
