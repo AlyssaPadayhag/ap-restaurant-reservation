@@ -9,12 +9,20 @@ function ListReservations({ reservations }) {
                     <h3>Name: {reservation.last_name}, {reservation.first_name}</h3>
                     <h3>Mobile number: {reservation.mobile_number}</h3>
                     <h3>Number of people in party: {reservation.people}</h3>
+                    <h3 data-reservation-id-status={reservation.reservation_id}>
+                      {reservation.status}
+                    </h3>
 
+
+                    {reservation.status === "booked" ? (
                     <div>
-                        <Link to={`/reservations/${reservation.reservation_id}/seat`} className="btn btn-success">
-                            Seat
-                        </Link>
+                      <Link to={`/reservations/${reservation.reservation_id}/seat`} className="btn btn-success">
+                        Seat
+                      </Link>
                     </div>
+                    ) : (
+                      <div>{null}</div>
+                    )}
                 </div>
             );
     });

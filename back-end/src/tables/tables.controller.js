@@ -59,19 +59,6 @@ function validateReservationIdBody(req, res, next) {
   });
 }
 
-
-function validateReservationId(req, res, next) {
-    const reservationId = req.body.data.reservation_id;
-    if (reservationId) {
-        res.locals.reservationId = reservationId;
-        return next();
-    }
-    next({
-        status: 400,
-        message: "body must have reservation_id property",
-    });
-}
-
 async function validateReservationExists(req, res, next) {
   const { reservation_id } = req.body.data;
   const reservations = await reservationsService.read(reservation_id);
@@ -130,6 +117,17 @@ async function validateTableOccupancy(req, res, next) {
       message: "This table is already occupied",
     });
   }
+
+  async function reservationIsAlreadySeated(req, res, next) {
+    if (res.locals.reservation.status === "seated") {
+      return next({
+        status: 400,
+        message: "This reservation is already seated",
+      });
+    } else return next();
+  }
+
+
   // CRUDL
 
   async function create(req, res, next) {
@@ -142,10 +140,15 @@ async function validateTableOccupancy(req, res, next) {
     res.json({ data: await service.list() });
   }
   
-  async function update(req, res, next) {
+  async function update(req, res) {
     const { table_id } = req.params;
     const { reservation_id } = req.body.data;
-    res.json({ data: await service.update(reservation_id, table_id) });
+    const updatedTable = {
+      reservation_id: reservation_id,
+      table_id: table_id,
+    };
+    const data = await service.update(updatedTable);
+    res.json({ data });
   }
 
   async function destroy(req, res, next) {
@@ -166,8 +169,8 @@ async function validateTableOccupancy(req, res, next) {
     update: [
         validateProperties,
         validateReservationIdBody,
-        asyncErrorBoundary(validateReservationId),
         asyncErrorBoundary(validateReservationExists),
+        reservationIsAlreadySeated,
         asyncErrorBoundary(validateTableCapacity),
         validateTableOccupancy,
         asyncErrorBoundary(update),

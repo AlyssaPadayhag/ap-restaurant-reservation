@@ -18,7 +18,6 @@ function Dashboard({ date }) {
   const [reservations, setReservations] = useState([]);
   const [reservationsError, setReservationsError] = useState(null);
 
-  const [errors, setErrors] = useState(null);
   const [tables, setTables] = useState([]);
   const [tablesError, setTablesError] = useState(null);
 
@@ -71,7 +70,6 @@ function Dashboard({ date }) {
   return (
     <main>
       <h1>Dashboard</h1>
-      <ErrorAlert error={errors} />
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
       

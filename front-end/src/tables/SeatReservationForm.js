@@ -3,10 +3,10 @@ import CancelButton from "../reservations/CancelButton";
 
 function SeatReservationForm({ currentTable, reservation, tables, handleChange, handleSubmit }) {
 
-    let free = tables.filter(
+    /*let free = tables.filter(
         (table) =>
           table.reservation_id === null && table.capacity >= reservation.people
-      );
+      ); */
 
     return (
         <div>

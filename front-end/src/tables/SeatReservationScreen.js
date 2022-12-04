@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import ErrorAlert from "../errors/ErrorAlert";
-import { listTables, updateTable, readReservation } from "../utils/api";
+import { listTables, updateTable, readReservation, updateReservationStatus } from "../utils/api";
 
 import SeatReservationForm from "./SeatReservationForm";
 
@@ -13,7 +13,6 @@ const { reservation_id } = useParams();
 const history = useHistory();
 
 const [error, setError] = useState(null);
-const [capacityError, setCapacityError] = useState(null);
 const [reservation, setReservation] = useState([]);
 const [tables, setTables] = useState([]);
 const [currentTable, setCurrentTable] = useState({ table_id: "", capacity: "" });
@@ -37,24 +36,25 @@ function handleChange({ target }) {
     setCurrentTable({ [target.name]: target.value });
   }
 
-const handleSubmit = (event) => {
+
+
+
+function handleSubmit(event) {
     event.preventDefault();
-
-    const { capacity } = currentTable;
-    const { people } = reservation;
-
-    if (capacity < people) {
-        setCapacityError({
-            message: "TEST"
-        });
+    if (currentTable.table_id !== 'x') {
+      const abortController = new AbortController();
+      let status = "seated";
+      updateReservationStatus(status, reservation_id, abortController.signal);
+      updateTable(
+        parseInt(currentTable.table_id),
+        reservation_id,
+        abortController.signal
+      ).then(() => {
+        history.push('/dashboard')
+      })
+      .catch(setError);
     }
-
-    const abortController = new AbortController();
-    updateTable( parseInt(currentTable.table_id), reservation_id, abortController.signal)
-        .then(() => { history.push("/dashboard") })
-        .catch(setError);
-    return () => abortController.abort();
-}
+  }
 
 const currentReservation = (
     <div key={reservation.reservation_id}>
@@ -65,20 +65,27 @@ const currentReservation = (
     </div>
 );
 
-    return (
-        <div>
-            <h1>Seat Reservation</h1>
-            <ErrorAlert error={error} />
-            <ErrorAlert error={capacityError} />
-            <div>{currentReservation}</div>
-            <SeatReservationForm
-                currentTable={currentTable}
-                reservation={reservation}
-                tables={tables}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit} />
-        </div>
-    );
+    if (reservation.status === 'booked') {
+        return (
+            <div>
+                <h1>Seat Reservation</h1>
+                <ErrorAlert error={error} />
+                <div>{currentReservation}</div>
+                <SeatReservationForm
+                    currentTable={currentTable}
+                    reservation={reservation}
+                    tables={tables}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit} />
+            </div>
+        );
+    } else {
+        return (
+          <div>
+            <p>Reservation cannot be seated</p>
+          </div>
+        );
+      }
 }
 
 export default SeatReservationScreen;
