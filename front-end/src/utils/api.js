@@ -141,3 +141,13 @@ export async function listTables(signal) {
   return await fetchJson(url, { headers, signal }, []);
 }
 
+export async function editReservation(updatedReservation, signal) {
+  const url = `${API_BASE_URL}/reservations/${updatedReservation.reservation_id}`;
+  const options = {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify({ data: updatedReservation }),
+    signal,
+  };
+  return await fetchJson(url, options);
+}

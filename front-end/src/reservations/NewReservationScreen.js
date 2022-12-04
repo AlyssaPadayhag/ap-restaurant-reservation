@@ -1,13 +1,19 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router";
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router";
 import ErrorAlert from "../errors/ErrorAlert";
-import { createReservation } from "../utils/api";
+import { createReservation, readReservation, editReservation } from "../utils/api";
+
+import formatReservationDate from '../utils/format-reservation-date';
+import formatReservationTime from '../utils/format-reservation-time';
 
 import NewReservationForm from "./NewReservationForm";
 
 function NewReservationScreen() {
+    
+    const { reservation_id } = useParams();
     const history = useHistory();
 
+    const [error, setError] = useState(null);
     const [closedOnTuesdaysError, setClosedOnTuesdaysError] = useState(null);
     const [pastDateError, setPastDateError] = useState(null);
     const [businessHoursError, setBusinessHoursError] = useState(null);
@@ -19,7 +25,25 @@ function NewReservationScreen() {
         reservation_date: "",
         reservation_time: "10:30",
         people: 1,
+        status: "booked",
     });
+
+    useEffect(() => {
+        async function loadReservation() {
+          if (reservation_id) {
+            const abortController = new AbortController();
+            setError(null);
+            readReservation(reservation_id, abortController.signal)
+              .then(formatReservationDate)
+              .then(formatReservationTime)
+              .then(setFormData)
+              .catch(setError);
+            return () => abortController.abort();
+          }
+        }
+    
+        loadReservation();
+      }, [reservation_id]);
 
     const handleChange = (event) => {
         event.preventDefault();
@@ -51,12 +75,21 @@ function NewReservationScreen() {
             });
         } else {
             const abortController = new AbortController();
-            await createReservation(formData, abortController.signal)
-                .then(() => {
-                    history.push(`/dashboard/?date=${formData.reservation_date}`);
-                })
-                .catch();
-            return () => abortController.abort();
+            if (reservation_id) {
+                editReservation(formData, abortController.signal)
+                    .then(() => {
+                        history.push(`/dashboard/?date=${formData.reservation_date}`); 
+                    })
+                    .catch()
+                    return () => abortController.abort(); 
+            } else {
+                await createReservation(formData, abortController.signal)
+                    .then(() => {
+                        history.push(`/dashboard/?date=${formData.reservation_date}`);
+                    })
+                    .catch();
+                    return () => abortController.abort();
+            }
         }
 
     };
@@ -64,6 +97,7 @@ function NewReservationScreen() {
     return (
         <div>
             <h1>Create New Reservation</h1>
+            <ErrorAlert error={error} />
             <ErrorAlert error={closedOnTuesdaysError} />
             <ErrorAlert error={pastDateError} />
             <ErrorAlert error={businessHoursError} />

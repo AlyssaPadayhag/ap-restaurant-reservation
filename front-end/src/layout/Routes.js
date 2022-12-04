@@ -42,6 +42,10 @@ function Routes() {
           <SeatReservationScreen />
       </Route>
 
+      <Route path="/reservations/:reservation_id/edit" >
+        <NewReservationScreen />
+      </Route>
+
       <Route path="/dashboard">
         <Dashboard date={today()} />
       </Route>
