@@ -13,9 +13,9 @@ function NewReservationScreen() {
     const [businessHoursError, setBusinessHoursError] = useState(null);
 
     const [formData, setFormData] = useState({
-        first_name: "a",
-        last_name: "a",
-        mobile_number: "123-456-7890",
+        first_name: "",
+        last_name: "",
+        mobile_number: "",
         reservation_date: "",
         reservation_time: "10:30",
         people: 1,
@@ -49,8 +49,7 @@ function NewReservationScreen() {
             setBusinessHoursError({
                 message: "Reservation time must be between 10:30am - 9:30pm"
             });
-        }
-        else {
+        } else {
             const abortController = new AbortController();
             await createReservation(formData, abortController.signal)
                 .then(() => {

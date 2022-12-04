@@ -5,6 +5,9 @@ import { today } from "../utils/date-time";
 
 import Dashboard from "../dashboard/Dashboard";
 import NewReservationScreen from "../reservations/NewReservationScreen";
+import NewTableScreen from "../tables/NewTableScreen";
+import SeatReservationScreen from "../tables/SeatReservationScreen";
+
 import NotFound from "../errors/NotFound";
 
 /**
@@ -28,6 +31,14 @@ function Routes() {
 
       <Route exact={true} path="/reservations">
         <Redirect to={"/dashboard"} />
+      </Route>
+
+      <Route path="/tables/new">
+          <NewTableScreen />
+      </Route>
+
+      <Route path="/reservations/:reservation_id/seat" >
+          <SeatReservationScreen />
       </Route>
 
       <Route path="/dashboard">

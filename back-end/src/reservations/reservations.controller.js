@@ -81,7 +81,7 @@ function validateTimeAndDate(req, res, next) {
   if (today > resDate) {
     return next({
       status: 400,
-      message: "Reservation needs to be in the future",
+      message: "Reservation date must be in the future",
     });
   }
   if (reservation_time < "10:30" || reservation_time > "21:30") {
@@ -93,6 +93,32 @@ function validateTimeAndDate(req, res, next) {
   return next();
 }
 
+async function reservationExists(req, res, next) {
+  const { reservation_id } = req.params;
+  const reservation = await service.read(reservation_id);
+  if (reservation) {
+    res.locals.reservation = reservation;
+    return next();
+  }
+  next({
+    status: 404,
+    message: `Reservation ${reservation_id} cannot be found.`,
+  });
+}
+
+async function create(req, res) {
+  const { data } = req.body;
+  const newReservation = await service.create(data);
+  res.status(201).json({ data: newReservation });
+}
+
+async function read(req, res) {
+  const { reservation_id } = req.params;
+  const results = await service.read(reservation_id);
+  const data = results[0];
+  res.json({ data });
+}
+
 async function list(req, res) {
   const { date } = req.query;
   if (date) {
@@ -100,12 +126,6 @@ async function list(req, res) {
   } else {
     res.json({ data: await service.list() });
   }
-}
-
-async function create(req, res) {
-  const { data } = req.body;
-  const newReservation = await service.create(data);
-  res.status(201).json({ data: newReservation });
 }
 
 
@@ -118,5 +138,9 @@ module.exports = {
     validateTimeAndDate,
     validatePeople,
     asyncErrorBoundary(create),
+  ],
+  read: [
+    asyncErrorBoundary(reservationExists),
+    asyncErrorBoundary(read),
   ],
 };
