@@ -17,6 +17,7 @@ function NewReservationScreen() {
     const [closedOnTuesdaysError, setClosedOnTuesdaysError] = useState(null);
     const [pastDateError, setPastDateError] = useState(null);
     const [businessHoursError, setBusinessHoursError] = useState(null);
+    const [mobileError, setMobileError] = useState(null);
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -58,7 +59,13 @@ function NewReservationScreen() {
         const resDay = new Date(formData.reservation_date);
         let currentDate = new Date();
         let resDate = new Date(formData.reservation_date);
-
+        let validate_mobile_number = formData.mobile_number;
+        const regex = new RegExp(/\d{3}-\d{3}-\d{4}/);
+        if (regex.test(validate_mobile_number) === false) {
+            setMobileError({
+                message: "Mobile number must be in correct format: 123-456-7890."
+            });
+        }
         if (resDay.getUTCDay() === 2) {
             setClosedOnTuesdaysError({
                 message: "Restaurant closed on Tuesdays.",
@@ -101,6 +108,7 @@ function NewReservationScreen() {
             <ErrorAlert error={closedOnTuesdaysError} />
             <ErrorAlert error={pastDateError} />
             <ErrorAlert error={businessHoursError} />
+            <ErrorAlert error={mobileError} />
             <NewReservationForm
                 formData={formData}
                 handleChange={handleChange}

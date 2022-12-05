@@ -91,6 +91,19 @@ function validatePeople(req, res, next) {
   next();
 }
 
+function validatePhone(req, res, next) {
+  const { mobile_number } = req.body.data;
+  const regex = new RegExp(/\d{3}-\d{3}-\d{4}/);
+  if (regex.test(mobile_number) === true) {
+    return next();
+  } else {
+    return next({
+      status: 400, 
+      message: `Phone number is formatted incorrectly: ${mobile_number}`,
+    });
+  }
+}
+
 async function validateCreateReservationStatus(req, res, next) {
   const { status } = req.body.data;
   if (!status || status === "booked") return next();
@@ -193,6 +206,7 @@ module.exports = {
     validateTime,
     validateDateAndTime,
     validatePeople,
+    validatePhone,
     validateCreateReservationStatus,
     asyncErrorBoundary(create),
   ],
