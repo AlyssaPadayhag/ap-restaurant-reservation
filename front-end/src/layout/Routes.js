@@ -21,29 +21,28 @@ import NotFound from "../errors/NotFound";
 function Routes() {
   return (
     <Switch>
-
-      <Route exact={true} path="/">
-        <Redirect to={"/dashboard"} />
-      </Route>
-
-      <Route exact={true} path="/reservations/new">
-        <NewReservationScreen />
-      </Route>
-
-      <Route exact={true} path="/reservations">
-        <Redirect to={"/dashboard"} />
-      </Route>
-
-      <Route path="/tables/new">
-          <NewTableScreen />
-      </Route>
-
       <Route path="/reservations/:reservation_id/seat" >
-          <SeatReservationScreen />
+        <SeatReservationScreen />
       </Route>
 
       <Route path="/reservations/:reservation_id/edit" >
         <NewReservationScreen />
+      </Route>
+
+      <Route path="/reservations/new">
+        <NewReservationScreen />
+      </Route>
+      
+      <Route path="/tables/new">
+          <NewTableScreen />
+      </Route>
+
+      <Route exact={true} path="/">
+        <Redirect to={'/dashboard'} />
+      </Route>
+
+      <Route exact={true} path="/reservations">
+        <Redirect to={'/dashboard'} />
       </Route>
 
       <Route path="/dashboard">
@@ -57,7 +56,6 @@ function Routes() {
       <Route>
         <NotFound />
       </Route>
-
     </Switch>
   );
 }
