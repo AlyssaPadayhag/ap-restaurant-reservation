@@ -1,3 +1,5 @@
+/* handle any possible errors thrown from async functions */
+
 function asyncErrorBoundary(delegate, defaultStatus) {
     return (request, response, next) => {
       Promise.resolve()

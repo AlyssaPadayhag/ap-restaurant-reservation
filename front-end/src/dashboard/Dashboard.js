@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+
 import { listReservations, listTables, finishTable } from "../utils/api";
+import { today, previous, next } from "../utils/date-time";
+import useQuery from "../utils/useQuery";
+
 import ErrorAlert from "../errors/ErrorAlert";
 import ListReservations from "../reservations/ListReservations";
 import ListTables from "../tables/ListTables";
-
-import useQuery from "../utils/useQuery";
-import { today, previous, next } from "../utils/date-time";
-import { useHistory } from "react-router";
 
 /**
  * Defines the dashboard page.
@@ -69,14 +70,16 @@ function Dashboard({ date }) {
 
   return (
     <main>
-      <h1>Dashboard</h1>
+      <h1 className="text-center">Dashboard</h1>
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
+
+      <div className="text-center border border-success mb-2 p-2">
+      <h3 className="mb-2">Reservations for {date}</h3>
       
-      <h4 className="mb-0">Reservations for {date}</h4>
-            <button
+      <button
                 type="button"
-                className="btn btn-primary mr-2"
+                className="btn btn-success mr-2 mb-2"
                 data-testid="previous-date"
                 onClick={handlePreviousDateClick}
             >
@@ -85,7 +88,7 @@ function Dashboard({ date }) {
 
             <button
                 type="button"
-                className="btn btn-primary mr-2"
+                className="btn btn-success mr-2 mb-2"
                 data-testid="today-date"
                 onClick={handleTodayDateClick}
             >
@@ -94,15 +97,18 @@ function Dashboard({ date }) {
 
             <button
                 type="button"
-                className="btn btn-primary mr-2"
+                className="btn btn-success mr-2 mb-2"
                 data-testid="next-date"
                 onClick={handleNextDateClick}
             >
                 Next
             </button>
+      </div>
+            
 
 
       <ListReservations reservations={reservations} />
+      <h3 className="text-center border border-success mb-2 p-2">Tables</h3>
       <ListTables tables={tables} handleFinish={handleFinish} />
     </main>
   );

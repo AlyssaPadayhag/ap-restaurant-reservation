@@ -11,14 +11,14 @@ function SearchForm({ search, handleChange, handleSubmit }) {
                         id="mobile_number"
                         name="mobile_number"
                         type="text"
-                        className="form-control"
+                        className="m-2"
                         onChange={handleChange}
                         value={search.mobile_number}
                         required
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary mr-2">Search</button>
+                <button type="submit" className="btn btn-success m-2">Search</button>
 
             </form>
         </div>

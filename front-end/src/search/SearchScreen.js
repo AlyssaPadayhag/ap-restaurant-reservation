@@ -27,6 +27,7 @@ function SearchScreen() {
 
     return (
         <div>
+            <h1>Search Reservation</h1>
             <ErrorAlert error={error} />
             <SearchForm search={search} handleChange={handleChange} handleSubmit={handleSubmit} />
             <ListReservations reservations={reservations} />

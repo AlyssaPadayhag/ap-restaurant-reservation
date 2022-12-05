@@ -1,9 +1,7 @@
+/* connection to the database */
+
 const knex = require("../db/connection");
 const table = "tables";
-
-function list() {
-    return knex(table).select("*").orderBy("table_name");
-}
 
 function create(newTable) {
     return knex(table)
@@ -43,7 +41,7 @@ function update({ table_id, reservation_id }) {
     });
   }
   
-  function destroy(reservation_id, table_id) {
+function destroy(reservation_id, table_id) {
     return knex.transaction((trx) => {
       return knex('reservations')
         .transacting(trx)
@@ -59,7 +57,11 @@ function update({ table_id, reservation_id }) {
         .then(trx.commit)
         .catch(trx.rollback);
     });
-  }
+}
+
+function list() {
+    return knex(table).select("*").orderBy("table_name");
+}
 
 module.exports ={
     create,

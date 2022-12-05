@@ -3,7 +3,7 @@
 function ListTables({ tables, handleFinish }) {
     const tableList = tables.map((table) => {
         return (
-            <div key={table.table_id}>
+            <div key={table.table_id} className="text-center border border-success m-2 p-2">
                 <div>
                     <h3>Table Name: {table.table_name}</h3>
                     <h3 data-table-id-status={table.table_id}>
@@ -24,7 +24,7 @@ function ListTables({ tables, handleFinish }) {
             Finish
           </button>
         )}
-        
+
             </div>
         );
     });

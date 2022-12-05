@@ -14,10 +14,10 @@ function SeatReservationForm({ currentTable, reservation, tables, handleChange, 
                 <div className="form-group">
                     <label htmlFor="table_id">Open Tables</label>
                     <select
-                    id="table_id"
-                name="table_id"
-                onChange={handleChange}
-                className="form-control form-control-lg"
+                      id="table_id"
+                      name="table_id"
+                      onChange={handleChange}
+                      className="form-control form-control-lg"
               >
                 <option value="x">--- Select A Table ---</option>
                 {tables.map((table) => (

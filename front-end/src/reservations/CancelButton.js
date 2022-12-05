@@ -5,7 +5,7 @@ function CancelButton(){
     const history = useHistory();
 
     return (
-        <button type="button" className="btn btn-secondary mr-2" onClick={() => history.push("/")}>
+        <button type="button" className="btn btn-danger mr-2" onClick={() => history.push("/")}>
             Cancel
         </button>
     );

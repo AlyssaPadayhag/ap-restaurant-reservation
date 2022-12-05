@@ -11,7 +11,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                         id="first_name"
                         name="first_name"
                         type="text"
-                        className="form-control"
+                        className="m-2"
                         onChange={handleChange}
                         value={formData.first_name}
                         required
@@ -23,7 +23,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                         id="last_name"
                         name="last_name"
                         type="text"
-                        className="form-control"
+                        className="m-2"
                         onChange={handleChange}
                         value={formData.last_name}
                         required
@@ -35,7 +35,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                         id="mobile_number"
                         name="mobile_number"
                         type="tel"
-                        className="form-control"
+                        className="m-2"
                         onChange={handleChange}
                         value={formData.mobile_number}
                         required
@@ -47,7 +47,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                         id="reservation_date"
                         name="reservation_date"
                         type="date"
-                        className="form-control"
+                        className="m-2"
                         onChange={handleChange}
                         value={formData.reservation_date}
                         required
@@ -59,7 +59,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                         id="reservation_time"
                         name="reservation_time"
                         type="time"
-                        className="form-control"
+                        className="m-2"
                         onChange={handleChange}
                         value={formData.reservation_time}
                         required
@@ -72,7 +72,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                         name="people"
                         type="number"
                         min="1"
-                        className="form-control"
+                        className="m-2"
                         onChange={handleChange}
                         value={formData.people}
                         required
@@ -80,7 +80,7 @@ function NewReservationForm({ formData, handleChange, handleSubmit }) {
                 </div>
 
                 <CancelButton />
-                <button type="submit" className="btn btn-primary mr-2"> Submit </button>
+                <button type="submit" className="btn btn-success mr-2"> Submit </button>
 
             </form>
         </div>

@@ -40,6 +40,7 @@ function NewTableScreen() {
 
     return (
         <div>
+            <h1>Create Table</h1>
             <ErrorAlert error={errors} />
             <NewTableForm
                 formData={formData}
