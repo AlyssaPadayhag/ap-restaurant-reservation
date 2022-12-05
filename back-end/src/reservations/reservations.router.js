@@ -8,8 +8,7 @@ const router = require("express").Router();
 const methodNotAllowed = require("../errors/methodNotAllowed");
 const controller = require("./reservations.controller");
 
-router
-    .route("/:reservation_id/status")
+router.route("/:reservation_id/status")
     .put(controller.updateStatus)
     .all(methodNotAllowed);
 

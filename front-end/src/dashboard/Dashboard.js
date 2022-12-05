@@ -108,8 +108,11 @@ function Dashboard({ date }) {
 
 
       <ListReservations reservations={reservations} />
-      <h3 className="text-center border border-success mb-2 p-2">Tables</h3>
+      <div className="text-center border border-secondary mb-2 p-2">
+      <h3 >Tables</h3>
       <ListTables tables={tables} handleFinish={handleFinish} />
+      </div>
+
     </main>
   );
 }
