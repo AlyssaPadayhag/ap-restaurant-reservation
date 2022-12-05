@@ -49,6 +49,10 @@ function Routes() {
         <Dashboard date={today()} />
       </Route>
 
+      <Route path="/dashboard/:date">
+        <Dashboard />
+      </Route>
+
       <Route path="/search">
         <SearchScreen />
       </Route>
