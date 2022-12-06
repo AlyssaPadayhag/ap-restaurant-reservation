@@ -83,7 +83,7 @@ function Dashboard({ date }) {
                 data-testid="previous-date"
                 onClick={handlePreviousDateClick}
             >
-                Previous
+                Prev
             </button>
 
             <button
@@ -105,8 +105,6 @@ function Dashboard({ date }) {
             </button>
       </div>
             
-
-
       <ListReservations reservations={reservations} />
       <div className="text-center border border-secondary mb-2 p-2">
       <h3 >{tables.length} Tables</h3>
