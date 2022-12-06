@@ -50,7 +50,7 @@ function handleSubmit(event) {
         reservation_id,
         abortController.signal
       ).then(() => {
-        history.push('/dashboard')
+        history.push('/dashboard');
       })
       .catch(setError);
     }

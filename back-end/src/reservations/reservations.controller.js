@@ -94,7 +94,8 @@ function validatePeople(req, res, next) {
 function validatePhone(req, res, next) {
   const { mobile_number } = req.body.data;
   const regex = new RegExp(/\d{3}-\d{3}-\d{4}/);
-  if (regex.test(mobile_number) === true) {
+  const regexTwo = new RegExp(/\d{10}/);
+  if (regex.test(mobile_number) === true || regexTwo.test(mobile_number) === true) {
     return next();
   } else {
     return next({
@@ -227,6 +228,7 @@ module.exports = {
     validateTime,
     validateDateAndTime,
     validatePeople,
+    validatePhone,
     asyncErrorBoundary(update),
   ]
 };

@@ -109,7 +109,7 @@ function Dashboard({ date }) {
 
       <ListReservations reservations={reservations} />
       <div className="text-center border border-secondary mb-2 p-2">
-      <h3 >Tables</h3>
+      <h3 >{tables.length} Tables</h3>
       <ListTables tables={tables} handleFinish={handleFinish} />
       </div>
 

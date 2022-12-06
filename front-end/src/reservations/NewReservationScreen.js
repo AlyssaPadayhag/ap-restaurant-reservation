@@ -103,7 +103,7 @@ function NewReservationScreen() {
 
     return (
         <div>
-            <h1>Create/Edit Reservation</h1>
+            <h1>{reservation_id ? "Edit Reservation" : "Create Reservation"}</h1>
             <ErrorAlert error={error} />
             <ErrorAlert error={closedOnTuesdaysError} />
             <ErrorAlert error={pastDateError} />

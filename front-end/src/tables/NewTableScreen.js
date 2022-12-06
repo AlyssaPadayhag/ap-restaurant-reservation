@@ -28,6 +28,7 @@ function NewTableScreen() {
         try {
           await createTable(formData, abortController.signal);
           history.push("/dashboard");
+          console.log("New table created successfully!");
         } catch (error) {
           if (error.name === "AbortController") {
             console.log("Aborted");
