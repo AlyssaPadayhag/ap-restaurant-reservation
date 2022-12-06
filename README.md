@@ -7,7 +7,7 @@
 ### Once the reserved party has arrived at the restaurant, the user can then assign a table to the party and only assign a table that has sufficient capacity.
 
 # Live Application:
-frontend: https://ap-restaurant-reservation-frontend.onrender.com/dashboard
+frontend: https://ap-restaurant-reservation-frontend.onrender.com
 
 backend: https://ap-restaurant-reservation-backend.onrender.com
 
