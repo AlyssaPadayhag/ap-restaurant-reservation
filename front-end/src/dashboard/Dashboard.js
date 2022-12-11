@@ -74,12 +74,12 @@ function Dashboard({ date }) {
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
 
-      <div className="text-center border border-success mb-2 p-2">
+      <div className="text-center border rounded border-primary mb-2 p-2">
       <h3 className="mb-2">Reservations for {date}</h3>
       
       <button
                 type="button"
-                className="btn btn-success mr-2 mb-2"
+                className="btn prevButton mr-2 mb-2"
                 data-testid="previous-date"
                 onClick={handlePreviousDateClick}
             >
@@ -88,7 +88,7 @@ function Dashboard({ date }) {
 
             <button
                 type="button"
-                className="btn btn-success mr-2 mb-2"
+                className="btn btn-primary mr-2 mb-2"
                 data-testid="today-date"
                 onClick={handleTodayDateClick}
             >
@@ -97,18 +97,19 @@ function Dashboard({ date }) {
 
             <button
                 type="button"
-                className="btn btn-success mr-2 mb-2"
+                className="btn nextButton mr-2 mb-2"
                 data-testid="next-date"
                 onClick={handleNextDateClick}
             >
                 Next
             </button>
+
+        <ListReservations reservations={reservations} />
       </div>
             
-      <ListReservations reservations={reservations} />
-      <div className="text-center border border-secondary mb-2 p-2">
-      <h3 >{tables.length} Tables</h3>
-      <ListTables tables={tables} handleFinish={handleFinish} />
+      <div className="text-center border border-primary mb-2 p-2">
+        <h3 >{tables.length} Tables</h3>
+        <ListTables tables={tables} handleFinish={handleFinish} />
       </div>
 
     </main>
