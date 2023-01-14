@@ -47,3 +47,11 @@
 .thing > :last-child {
   margin-bottom: 0;
 }
+
+.main-menu-logo {
+  background-image: url("../images/restaurant_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}

@@ -17,9 +17,12 @@ function Menu() {
           to="/"
         >
           <div className="sidebar-brand-text mx-3">
-            <span>Periodic Tables</span>
+            <div className="main-menu-logo"></div>
+            <span>Main Menu</span>
           </div>
         </Link>
+        
+
         <hr className="sidebar-divider my-0" />
         <ul className="nav navbar-nav text-light" id="accordionSidebar">
           <li className="nav-item">
