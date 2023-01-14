@@ -1,6 +1,54 @@
+body {
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  background-repeat: none;
+}
+
 .side-bar {
   background-color: #393a44;
   min-width: 200px;
+}
+
+.sidebar-header {
+  font-family: 'Lobster', cursive;
+  color: white;
+  margin: 10px;
+  background-color: rgba(71, 34, 2, 0.7);
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+  border: #000;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.sidebar-header-2 {
+  font-family: 'Comfortaa', cursive;
+  color: white;
+  margin: 10px;
+  background-color: rgba(71, 34, 2, 0.7);
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+  border: #000;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.reservations-not-found {
+  font-family: 'Comfortaa', cursive;
+  color: white;
+  margin: 10px;
+  background-color: rgba(123, 117, 117, 0.7);
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+  border: #000;
+  border-style: solid;
+  border-radius: 10px;
 }
 
 .btn:focus, .btn:active {
@@ -53,5 +101,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   width: 200px;
-  height: 200px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
 }
