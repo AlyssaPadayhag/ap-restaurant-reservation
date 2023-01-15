@@ -10,7 +10,7 @@ body {
   background-repeat: no-repeat;
   width: 200px;
   height: 150px;
-  margin: 0;
+  margin: 10px 0 0 50px;
   padding: 0;
 }
 
@@ -60,9 +60,6 @@ body {
   border-radius: 10px;
 }
 
-.btn:focus, .btn:active {
-  outline-color: green !important;
-}
 /* prevButton and nextButton credit: https://blog.avada.io/css/border-examples */
 
 .prevButton {
@@ -104,3 +101,4 @@ body {
 .thing > :last-child {
   margin-bottom: 0;
 }
+

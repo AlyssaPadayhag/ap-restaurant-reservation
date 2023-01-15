@@ -10,7 +10,10 @@ import { Link } from "react-router-dom";
 
 function Menu() {
   return (
-    <nav className="navbar navbar-dark align-items-start p-0">
+    <div>
+      
+      <div className="main-menu-logo"></div>
+      <nav className="navbar navbar-dark align-items-start p-0">
       <div className="container-fluid d-flex flex-column p-0">
         <Link
           className="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
@@ -18,7 +21,6 @@ function Menu() {
         >
           
           <div className="sidebar-brand-text">
-            <div className="main-menu-logo"></div>
           </div>
         </Link>
         
@@ -59,6 +61,8 @@ function Menu() {
         </div>
       </div>
     </nav>
+    </div>
+
   );
 }
 
