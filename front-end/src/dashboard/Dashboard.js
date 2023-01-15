@@ -74,8 +74,8 @@ function Dashboard({ date }) {
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
 
-      <div className="text-center border rounded border-primary mb-2 p-2">
-      <h3 className="mb-2 sidebar-header-2">Reservations for {date}</h3>
+      <div className="text-center mb-2 p-2 sidebar-header-2">
+      <h3 className="mb-2 ">Reservations for {date}</h3>
       
       <button
                 type="button"

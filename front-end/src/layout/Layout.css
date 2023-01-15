@@ -1,7 +1,17 @@
 body {
-  background-image: url("../images/bg.png");
+  background-image: url("../images/bg.jpg");
   background-size: cover;
   background-repeat: none;
+}
+
+.main-menu-logo {
+  background-image: url("../images/restaurant_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
 }
 
 .side-bar {
@@ -28,7 +38,6 @@ body {
   color: white;
   margin: 10px;
   background-color: rgba(71, 34, 2, 0.7);
-  width: 50%;
   margin-left: auto;
   margin-right: auto;
 
@@ -42,7 +51,7 @@ body {
   color: white;
   margin: 10px;
   background-color: rgba(123, 117, 117, 0.7);
-  width: 50%;
+  width: 40%;
   margin-left: auto;
   margin-right: auto;
 
@@ -94,14 +103,4 @@ body {
 
 .thing > :last-child {
   margin-bottom: 0;
-}
-
-.main-menu-logo {
-  background-image: url("../images/restaurant_logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 200px;
-  height: 150px;
-  margin: 0;
-  padding: 0;
 }
