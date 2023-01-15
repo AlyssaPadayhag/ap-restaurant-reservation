@@ -64,9 +64,9 @@ function ListReservations({ reservations }) {
     if (reservations.length < 1) {
         return (
           <div>
-            <h2 className="text-center mb-2 reservations-not-found">No Reservations</h2>
+            <h2 className="text-center mb-2 reservations-not-found">No Reservations Found</h2>
             <p className="reservations-not-found">To start a new reservation, click on
-              <Link className="nav-link badge-secondary" to="/reservations/new">
+              <Link className="nav-link badge-secondary rounded" to="/reservations/new">
                 <span className="oi oi-plus" />
                 &nbsp;New Reservation
               </Link>
