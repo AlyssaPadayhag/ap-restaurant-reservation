@@ -1,7 +1,12 @@
 body {
-  background-image: url("../images/bg.jpg");
-  background-size: contain;
-  background-repeat: none;
+  background-color: #393a44;
+}
+
+.dashboard-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+  padding: 10px;
 }
 
 .main-menu-logo {
@@ -19,7 +24,7 @@ body {
   min-width: 200px;
 }
 
-.sidebar-header {
+.dashboard-header {
   font-family: 'Lobster', cursive;
   color: white;
   margin: 10px;
@@ -33,7 +38,7 @@ body {
   border-radius: 10px;
 }
 
-.sidebar-header-2 {
+.dashboard-header-2 {
   font-family: 'Comfortaa', cursive;
   color: white;
   margin: 10px;
@@ -58,6 +63,14 @@ body {
   border: #000;
   border-style: solid;
   border-radius: 10px;
+}
+
+.reservation-card {
+  border: #fff;
+  border-style: solid;
+  width: 50%;
+  margin: 10px;
+  padding: 10px;
 }
 
 /* prevButton and nextButton credit: https://blog.avada.io/css/border-examples */
