@@ -69,12 +69,12 @@ function Dashboard({ date }) {
   }
 
   return (
-    <main>
-      <h1 className="text-center sidebar-header">Dashboard</h1>
+    <main className="dashboard-bg">
+      <h1 className="text-center dashboard-header">Dashboard</h1>
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
 
-      <div className="text-center mb-2 p-2 sidebar-header-2">
+      <div className="text-center mb-2 p-2 dashboard-header-2">
       <h3 className="mb-2 ">Reservations for {date}</h3>
       
       <button
