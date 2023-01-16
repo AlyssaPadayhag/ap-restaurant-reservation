@@ -56,12 +56,7 @@ function ListReservations({ reservations }) {
                       </tbody>
                     </table>
 
-                    {reservation.status === "cancelled" ? (
-                      <div className="cancelled-padding"> </div>
 
-                    ) : (
-                      <div>{null}</div>
-                    )}
 
                     {reservation.status === "booked" ? (
                     <div>
@@ -82,7 +77,7 @@ function ListReservations({ reservations }) {
                       </div>
                     </div>
                     ) : (
-                      <div>{null}</div>
+                      <div className="cancelled-padding"> </div>
                     )}
                 </div>
               </div>
