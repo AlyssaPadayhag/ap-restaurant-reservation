@@ -79,11 +79,11 @@ function Dashboard({ date }) {
       <div className="text-center">
       <button
                 type="button"
-                className="btn prevButton mr-2 mb-2"
+                className="btn btn-secondary mr-2 mb-2"
                 data-testid="previous-date"
                 onClick={handlePreviousDateClick}
             >
-                Prev
+                {"<"}
             </button>
 
             <button
@@ -97,11 +97,11 @@ function Dashboard({ date }) {
 
             <button
                 type="button"
-                className="btn nextButton mr-2 mb-2"
+                className="btn btn-secondary mr-2 mb-2"
                 data-testid="next-date"
                 onClick={handleNextDateClick}
             >
-                Next
+                {">"}
             </button>
       </div>
 
