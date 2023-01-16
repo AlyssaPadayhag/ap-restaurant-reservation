@@ -67,12 +67,8 @@
   width: 49%;
 }
 
-.flex-child {
-  flex: 1;
-}
-
-.center-cards {
-  align-items: center;
+.cancelled-padding {
+  padding: 23px;
 }
 
 /* prevButton and nextButton credit: https://blog.avada.io/css/border-examples */
