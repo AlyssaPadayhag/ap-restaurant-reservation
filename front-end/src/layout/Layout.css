@@ -62,8 +62,9 @@
   justify-content: center;
   border: #fff;
   border-style: solid;
+  margin: 0 0 5px 5px;
   padding: 10px;
-  width: 50%;
+  width: 49%;
 }
 
 .flex-child {
