@@ -7,9 +7,9 @@
   background-image: url("../images/restaurant_logo.png");
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   width: 200px;
   height: 150px;
-  margin: 10px 0 0 50px;
   padding: 0;
 }
 

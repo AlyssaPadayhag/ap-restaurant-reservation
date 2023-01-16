@@ -12,14 +12,14 @@ function Menu() {
   return (
     <div>
       
-      <div className="main-menu-logo"></div>
+      
       <nav className="navbar navbar-dark align-items-start p-0">
       <div className="container-fluid d-flex flex-column p-0">
         <Link
           className="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
           to="/"
         >
-          
+          <div className="main-menu-logo"></div>
           <div className="sidebar-brand-text">
           </div>
         </Link>
