@@ -74,9 +74,9 @@ function Dashboard({ date }) {
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
 
-      <div className="text-center mb-2 p-2 dashboard-header-2">
-      <h3 className="mb-2 ">Reservations for {date}</h3>
-      
+      <div className="mb-2 p-2 dashboard-header-2">
+      <h3 className="mb-2 text-center ">Reservations for {date}</h3>
+      <div className="text-center">
       <button
                 type="button"
                 className="btn prevButton mr-2 mb-2"
@@ -103,8 +103,10 @@ function Dashboard({ date }) {
             >
                 Next
             </button>
+      </div>
 
-        <ListReservations reservations={reservations} />
+
+        <ListReservations reservations={reservations}/>
       </div>
             
       <div className="text-center border border-primary mb-2 p-2">

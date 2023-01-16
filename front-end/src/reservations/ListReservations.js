@@ -25,7 +25,8 @@ function ListReservations({ reservations }) {
         }
       }
             return (
-                <div key={reservation.reservation_id} className="reservation-card">
+              <div className="reservation-card d-inline-flex flex-wrap">
+                  <div key={reservation.reservation_id}>
                     <h3>Date: {reservation.reservation_date}</h3>
                     <h3>Time: {reservation.reservation_time}</h3>
                     <h3>Name: {reservation.last_name}, {reservation.first_name}</h3>
@@ -58,6 +59,7 @@ function ListReservations({ reservations }) {
                       <div>{null}</div>
                     )}
                 </div>
+              </div>
             );
     });
 
