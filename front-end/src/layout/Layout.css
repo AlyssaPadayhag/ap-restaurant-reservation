@@ -3,6 +3,8 @@
   background-size: cover;
 } 
 
+/* SIDE MENU */
+
 .main-menu-logo {
   background-image: url("../images/restaurant_logo.png");
   background-size: contain;
@@ -16,6 +18,8 @@
   background-color: rgb(99, 63, 31);
   min-width: 200px;
 }
+
+/* DASHBOARD HEADER */
 
 .dashboard-header {
   font-family: 'Lobster', cursive;
@@ -31,7 +35,7 @@
   border-radius: 10px;
 }
 
-.dashboard-header-2 {
+.reservations-header {
   font-family: 'Comfortaa', cursive;
   color: white;
   margin: 10px;
@@ -43,6 +47,8 @@
   border-style: solid;
   border-radius: 10px;
 }
+
+/* RESERVATION CARDS and NO RESERVATION FOUND */
 
 .reservations-not-found {
   font-family: 'Comfortaa', cursive;
