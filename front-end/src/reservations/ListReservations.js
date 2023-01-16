@@ -25,7 +25,7 @@ function ListReservations({ reservations }) {
         }
       }
             return (
-                <div key={reservation.reservation_id} className="border border-success m-2 p-2">
+                <div key={reservation.reservation_id} className="reservation-card">
                     <h3>Date: {reservation.reservation_date}</h3>
                     <h3>Time: {reservation.reservation_time}</h3>
                     <h3>Name: {reservation.last_name}, {reservation.first_name}</h3>
@@ -64,7 +64,7 @@ function ListReservations({ reservations }) {
     if (reservations.length < 1) {
         return (
           <div>
-            <h2 className="text-center mb-2 reservations-not-found">No Reservations Found</h2>
+            <h3 className="text-center mb-2 p-2 reservations-not-found">No Reservations Found</h3>
             <p className="reservations-not-found">To start a new reservation, click on
               <Link className="nav-link badge-secondary rounded" to="/reservations/new">
                 <span className="oi oi-plus" />
