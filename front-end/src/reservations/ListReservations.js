@@ -27,14 +27,34 @@ function ListReservations({ reservations }) {
             return (
               <div className="reservation-card d-inline-flex flex-wrap">
                   <div key={reservation.reservation_id}>
-                    <h4>Date: {reservation.reservation_date}</h4>
-                    <h4>Time: {reservation.reservation_time}</h4>
-                    <h4>Name: {reservation.last_name}, {reservation.first_name}</h4>
-                    <h4>Mobile number: {reservation.mobile_number}</h4>
-                    <h4>Number of people in party: {reservation.people}</h4>
-                    <h4 data-reservation-id-status={reservation.reservation_id}>
-                      Status: {reservation.status}
-                    </h4>
+                    <table className="table table-striped table-light">
+                      <tbody>
+                        <tr>
+                          <td>Date: </td>
+                          <td>{reservation.reservation_date}</td>
+                        </tr>
+                        <tr>
+                          <td>Time: </td>
+                          <td>{reservation.reservation_time}</td>
+                        </tr>
+                        <tr>
+                          <td>Name: </td>
+                          <td>{reservation.last_name}, {reservation.first_name}</td>
+                        </tr>
+                        <tr>
+                          <td>Mobile number: </td>
+                          <td>{reservation.mobile_number}</td>
+                        </tr>
+                        <tr>
+                          <td>Number of people in party: </td>
+                          <td>{reservation.people}</td>
+                        </tr>
+                        <tr>
+                          <td>Status: </td>
+                          <td data-reservation-id-status={reservation.reservation_id}>{reservation.status}</td>
+                        </tr>
+                      </tbody>
+                    </table>
 
                     {reservation.status === "cancelled" ? (
                       <div className="cancelled-padding"> </div>
