@@ -59,7 +59,7 @@ function ListReservations({ reservations }) {
 
 
                     {reservation.status === "booked" ? (
-                    <div>
+                    <div className="text-center">
                       <Link to={`/reservations/${reservation.reservation_id}/seat`} className="btn btn-success mr-2">
                         Seat
                       </Link>
