@@ -9,6 +9,10 @@ p {
   margin: 5px;
 }
 
+#tables-length {
+  color: greenyellow;
+}
+
 /* SIDE MENU */
 
 .main-menu-logo {
@@ -41,7 +45,7 @@ p {
   border-radius: 10px;
 }
 
-.reservations-header {
+.reservations-tables-header {
   font-family: 'Comfortaa', cursive;
   color: white;
   margin: 10px;

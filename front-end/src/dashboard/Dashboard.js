@@ -74,7 +74,7 @@ function Dashboard({ date }) {
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
 
-      <div className="mb-2 p-2 reservations-header">
+      <div className="mb-2 p-2 reservations-tables-header">
       <h3 className="mb-2 text-center ">Reservations for {date}</h3>
       <div className="text-center">
       <button
@@ -109,8 +109,8 @@ function Dashboard({ date }) {
         <ListReservations reservations={reservations}/>
       </div>
             
-      <div className="text-center border border-primary mb-2 p-2">
-        <h3 >{tables.length} Tables</h3>
+      <div className="mb-2 p-2 reservations-tables-header">
+        <h3 className="mb-2 text-center"> Total tables in restaurant: <span id="tables-length">{tables.length}</span></h3>
         <ListTables tables={tables} handleFinish={handleFinish} />
       </div>
 
