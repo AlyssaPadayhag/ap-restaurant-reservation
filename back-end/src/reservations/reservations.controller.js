@@ -82,7 +82,7 @@ function validateDateAndTime(req, res, next) {
 function validatePeople(req, res, next) {
   const { people } = req.body.data;
   const validNumber = Number.isInteger(people);
-  if (!validNumber || people <= 0) {
+  if ( people <= 0) {
     return next({
       status: 400,
       message: 'Number of people entered is invalid.',
