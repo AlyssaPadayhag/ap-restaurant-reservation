@@ -13,6 +13,10 @@ p {
   color: greenyellow;
 }
 
+#date-length {
+  color: rgb(0, 157, 255);
+}
+
 /* SIDE MENU */
 
 .main-menu-logo {
@@ -52,8 +56,16 @@ p {
   background-color: rgba(99, 63, 31, .9);
   margin-left: auto;
   margin-right: auto;
+}
 
-  border: #000;
+.reservation-header-border {
+  border: rgb(0, 157, 255);
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.table-header-border {
+  border: yellowgreen;
   border-style: solid;
   border-radius: 10px;
 }
@@ -83,6 +95,15 @@ p {
   width: 49%;
 }
 
-.cancelled-padding {
+.table-card {
+  justify-content: center;
+  border: #fff;
+  border-style: solid;
+  margin: 0 0 5px 5px;
+  padding: 10px;
+  width: 32%;
+}
+
+.cancelled-finish-padding {
   padding: 23px;
 }
