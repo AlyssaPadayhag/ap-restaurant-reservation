@@ -77,7 +77,7 @@ function ListReservations({ reservations }) {
                       </div>
                     </div>
                     ) : (
-                      <div className="cancelled-padding"> </div>
+                      <div className="cancelled-finish-padding"> </div>
                     )}
                 </div>
               </div>
