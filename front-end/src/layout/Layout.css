@@ -97,11 +97,24 @@ p {
 
 .table-card {
   justify-content: center;
+  width: 32%;
+}
+
+#occupied {
+  color: red;
+  font-weight: bold;
+}
+
+#free {
+  color: rgb(48, 166, 48);
+  font-weight: bold;
+}
+
+.table-button-border {
   border: #fff;
   border-style: solid;
-  margin: 0 0 5px 5px;
-  padding: 10px;
-  width: 32%;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
 .cancelled-finish-padding {
