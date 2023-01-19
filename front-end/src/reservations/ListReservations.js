@@ -30,14 +30,6 @@ function ListReservations({ reservations }) {
                     <table className="table table-striped table-light m-0 p-0">
                       <tbody>
                         <tr>
-                          <td>Date: </td>
-                          <td>{reservation.reservation_date}</td>
-                        </tr>
-                        <tr>
-                          <td>Time: </td>
-                          <td>{reservation.reservation_time}</td>
-                        </tr>
-                        <tr>
                           <td>Name: </td>
                           <td>{reservation.last_name}, {reservation.first_name}</td>
                         </tr>
@@ -48,6 +40,14 @@ function ListReservations({ reservations }) {
                         <tr>
                           <td>Number of people in party: </td>
                           <td>{reservation.people}</td>
+                        </tr>
+                        <tr>
+                          <td>Date: </td>
+                          <td>{reservation.reservation_date}</td>
+                        </tr>
+                        <tr>
+                          <td>Time: </td>
+                          <td>{reservation.reservation_time}</td>
                         </tr>
                         <tr>
                           <td>Status: </td>
