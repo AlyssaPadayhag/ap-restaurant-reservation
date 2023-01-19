@@ -9,12 +9,8 @@ p {
   margin: 5px;
 }
 
-#tables-length {
+#date-length, #tables-length {
   color: greenyellow;
-}
-
-#date-length {
-  color: rgb(0, 157, 255);
 }
 
 /* SIDE MENU */
@@ -60,6 +56,27 @@ p {
   border: yellowgreen;
   border-style: solid;
   border-radius: 10px;
+}
+
+.menu-link {
+  color: #fff;
+}
+
+.menu-link:hover {
+  text-decoration: none;
+}
+
+.menu-item {
+  padding-top: 20px;
+  text-decoration: none;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: gray;
 }
 
 .reservations-tables-header {
