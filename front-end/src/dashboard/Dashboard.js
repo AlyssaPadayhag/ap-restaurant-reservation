@@ -8,6 +8,7 @@ import useQuery from "../utils/useQuery";
 import ErrorAlert from "../errors/ErrorAlert";
 import ListReservations from "../reservations/ListReservations";
 import ListTables from "../tables/ListTables";
+import DashboardNav from "./DashboardNav";
 
 /**
  * Defines the dashboard page.
@@ -70,12 +71,13 @@ function Dashboard({ date }) {
 
   return (
     <main className="dashboard-bg">
-      <h1 className="text-center dashboard-header">Dashboard</h1>
+      <h1 className="text-center dashboard-header" id="reservations">Dashboard</h1>
+      <DashboardNav />
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
 
       <div className="mb-2 p-2 reservations-tables-header reservation-header-border">
-      <h3 className="mb-2 text-center ">Reservations for <span id="date-length">{date}</span></h3>
+      <h3 className="mb-2 text-center" >Reservations for <span id="date-length">{date}</span></h3>
       <div className="text-center">
       <button
                 type="button"
@@ -110,7 +112,7 @@ function Dashboard({ date }) {
       </div>
             
       <div className="mb-2 p-2 reservations-tables-header table-header-border">
-        <h3 className="mb-2 text-center"> Total tables in restaurant: <span id="tables-length">{tables.length}</span></h3>
+        <h3 className="mb-2 text-center" id="tables"> Total tables in restaurant: <span id="tables-length">{tables.length}</span></h3>
         <ListTables tables={tables} handleFinish={handleFinish} />
       </div>
 

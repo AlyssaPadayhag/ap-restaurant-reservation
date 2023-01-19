@@ -49,6 +49,19 @@ p {
   border-radius: 10px;
 }
 
+.dashbaord-header-nav {
+  font-family: 'Comfortaa', cursive;
+  background-color: rgba(99, 63, 31, .9);
+  width: 23%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  
+  border: yellowgreen;
+  border-style: solid;
+  border-radius: 10px;
+}
+
 .reservations-tables-header {
   font-family: 'Comfortaa', cursive;
   color: white;
