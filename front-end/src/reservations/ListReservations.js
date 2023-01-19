@@ -27,7 +27,7 @@ function ListReservations({ reservations }) {
             return (
               <div className="reservation-card d-inline-flex flex-wrap">
                   <div key={reservation.reservation_id}>
-                    <table className="table table-striped table-light">
+                    <table className="table table-striped table-light m-0 p-0">
                       <tbody>
                         <tr>
                           <td>Date: </td>
@@ -59,7 +59,7 @@ function ListReservations({ reservations }) {
 
 
                     {reservation.status === "booked" ? (
-                    <div className="text-center">
+                    <div className="text-center card-button-border">
                       <Link to={`/reservations/${reservation.reservation_id}/seat`} className="btn btn-success mr-2">
                         Seat
                       </Link>

@@ -22,7 +22,7 @@ function ListTables({ tables, handleFinish }) {
                 </table>
 
                 {table.reservation_id ? (
-        <div className="text-center table-button-border">
+        <div className="text-center card-button-border">
           <button
             data-table-id-finish={table.table_id}
             value={table.reservation_id}

@@ -88,8 +88,6 @@ p {
 
 .reservation-card {
   justify-content: center;
-  border: #fff;
-  border-style: solid;
   margin: 0 0 5px 5px;
   padding: 10px;
   width: 49%;
@@ -110,7 +108,7 @@ p {
   font-weight: bold;
 }
 
-.table-button-border {
+.card-button-border {
   border: #fff;
   border-style: solid;
   margin-bottom: 10px;
