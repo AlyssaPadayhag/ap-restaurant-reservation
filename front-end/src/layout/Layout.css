@@ -93,6 +93,21 @@ p {
   width: 33%;
 }
 
+#booked {
+  color: green;
+  font-weight: bold;
+}
+
+#seated {
+  color: blue;
+  font-weight: bold;
+}
+
+#cancelled {
+  color: red;
+  font-weight: bold;
+}
+
 .table-card {
   justify-content: center;
   width: 20%;

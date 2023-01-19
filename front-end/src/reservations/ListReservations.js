@@ -51,7 +51,13 @@ function ListReservations({ reservations }) {
                         </tr>
                         <tr>
                           <td>Status: </td>
-                          <td data-reservation-id-status={reservation.reservation_id}>{reservation.status}</td>
+                          {reservation.status === "booked" ? 
+                            <td data-reservation-id-status={reservation.reservation_id} id="booked">{reservation.status}</td> :
+                           reservation.status === "seated" ? 
+                            <td data-reservation-id-status={reservation.reservation_id} id="seated">{reservation.status}</td> :
+                            <td data-reservation-id-status={reservation.reservation_id} id="cancelled">{reservation.status}</td>
+                          }
+                          
                         </tr>
                       </tbody>
                     </table>
