@@ -31,7 +31,7 @@ p {
 
 /* DASHBOARD HEADER */
 
-.dashboard-header {
+.page-header {
   font-family: 'Lobster', cursive;
   color: white;
   margin: 10px;
@@ -162,4 +162,23 @@ a:hover {
 
 .cancelled-finish-padding {
   padding: 23px;
+}
+
+
+
+.form-group {
+
+  font-family: 'Comfortaa', cursive;
+  color: white;
+  background-color: rgba(99, 63, 31, .9);
+  
+  border: yellowgreen;
+  border-style: solid;
+  border-radius: 10px;
+
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  padding: auto;
+  padding: 10px;
 }

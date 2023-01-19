@@ -27,10 +27,13 @@ function SearchScreen() {
 
     return (
         <div>
-            <h1>Search Reservation</h1>
+            <h1 className="text-center page-header">Search Reservation</h1>
             <ErrorAlert error={error} />
+            <div className="form-group">
+                
             <SearchForm search={search} handleChange={handleChange} handleSubmit={handleSubmit} />
             <ListReservations reservations={reservations} />
+            </div>
         </div>
     );
 }

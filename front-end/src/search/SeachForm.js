@@ -5,7 +5,7 @@ function SearchForm({ search, handleChange, handleSubmit }) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
+                <div>
                     <label htmlFor="mobile_number">Mobile number:</label>
                     <input 
                         id="mobile_number"
@@ -21,6 +21,7 @@ function SearchForm({ search, handleChange, handleSubmit }) {
                 <button type="submit" className="btn btn-success m-2">Search</button>
 
             </form>
+            
         </div>
     );
 }
