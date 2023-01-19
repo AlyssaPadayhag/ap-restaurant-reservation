@@ -71,7 +71,7 @@ function Dashboard({ date }) {
 
   return (
     <main className="dashboard-bg">
-      <h1 className="text-center dashboard-header" id="reservations">Dashboard</h1>
+      <h1 className="text-center page-header" id="reservations">Dashboard</h1>
       <DashboardNav />
       <ErrorAlert error={reservationsError} />
       <ErrorAlert error={tablesError} />
