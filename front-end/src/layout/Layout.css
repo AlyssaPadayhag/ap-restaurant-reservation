@@ -59,7 +59,7 @@ p {
 }
 
 .reservation-header-border {
-  border: rgb(0, 157, 255);
+  border: yellowgreen;
   border-style: solid;
   border-radius: 10px;
 }
@@ -90,12 +90,12 @@ p {
   justify-content: center;
   margin: 0 0 5px 5px;
   padding: 10px;
-  width: 49%;
+  width: 33%;
 }
 
 .table-card {
   justify-content: center;
-  width: 32%;
+  width: 20%;
 }
 
 #occupied {
